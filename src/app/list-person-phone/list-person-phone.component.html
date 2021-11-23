@@ -1,0 +1,24 @@
+<br><br><br>
+<div class="col-md-6">
+  <h2> Person Phones</h2>
+  <button class="btn btn-success" routerLink="/add-person"> Add Person Phone</button>
+  
+  <table class="table table-striped">
+    <thead>
+    <tr>
+      <th>Person Name</th>
+      <th>Phone Number</th>
+      <th>Phone Number Type</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let personsphone of listPersonsPhone">
+      <td>{{personsphone.personName}}</td>
+      <td>{{personsphone.phoneNumber}}</td>
+      <td>{{personsphone.phoneNumberTypeName}}</td>
+      <td><button class="btn btn-danger" (click)="deletePersonPhone(personsphone)"> Delete</button>
+    </tr>
+    </tbody>
+  </table>
+</div>

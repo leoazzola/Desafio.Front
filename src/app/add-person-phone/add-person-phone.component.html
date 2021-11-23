@@ -1,0 +1,37 @@
+<br><br><br>
+
+<div class="col-md-6">
+  <h2 class="text-center">Add Person Phone Contact</h2>
+  <form [formGroup]="addForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label for="businessEntityID">Name:</label>
+      <select name="businessEntityID" formControlName="businessEntityID"> 
+        <option *ngFor="let person of listPersons" [value]="person.businessEntityID">{{person.name}}</option>
+      </select>
+      <div class="feedback-red" *ngIf="isInvalid('businessEntityID')">
+        Person is empty.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number:</label>
+      <input formControlName="phoneNumber" placeholder="Phone Number" name="phoneNumber" class="form-control" id="phoneNumber">
+      <div class="feedback-red" *ngIf="isInvalid('phoneNumber')">
+        Person Phone is empty.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="phoneNumberTypeID">Phone Number Type:</label>
+      <select name="phoneNumberTypeID" formControlName="phoneNumberTypeID"> 
+        <option *ngFor="let phoneTypes of listPersonsPhoneTypes" [value]="phoneTypes.phoneNumberTypeID">{{phoneTypes.name}}</option>
+      </select>
+      <div class="feedback-red" *ngIf="isInvalid('phoneNumberTypeID')">
+        Person is empty.
+      </div>
+    </div>    
+
+    <button button [disabled]="addForm.invalid" class="btn btn-success">Submit</button>
+  </form>
+</div>
